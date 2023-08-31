@@ -8,5 +8,3 @@ router.route('/').post(createAccount)
 router.route('/:acctNum').get(getAccountByID)
 
 module.exports = router
-
-

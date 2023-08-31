@@ -3,7 +3,7 @@ require('express-async-errors');
 const express = require('express');
 const app = express();
 
-const acctRouter = require('./routes/account')
+const acctRouter = require('./routes/account');
 const notFoundMidllware = require('./middleware/not-found');
 const errorMidllware = require('./middleware/error-handler');
 
@@ -22,6 +22,6 @@ app.use(errorMidllware);
 
 const PORT = process.env.PORT|| 3000;
 
-app.listen(PORT, () => {
+module.exports = app.listen(PORT, () => {
   console.log(`Server is listening on port ${PORT}`);
 });

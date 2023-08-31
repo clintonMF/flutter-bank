@@ -1,7 +1,7 @@
 const {StatusCodes} = require('http-status-codes');
 
-const {NotFound, BadRequest} = require('../utils/errors');
 const database = require('../db/storage');
+const {NotFound, BadRequest} = require('../utils/errors');
 const generateNum = require('../utils/generate-num');
 const validateInput = require('../utils/validation');
 
@@ -9,14 +9,15 @@ const createAccount = async (req, res) => {
     const { error } = validateInput(req.body);
 
     if (error) {
-        throw new BadRequest(error.details[0].message)
-    }
+        throw new BadRequest(error.details[0].message);
+    };
 
     const randomNum = generateNum(10)
     req.body.accountNumber = parseInt(randomNum);   // add account number
     database[database.length] = {...req.body}
     delete req.body.DOB  // don't return the DOB
-    res.json({msg:"account created", details: req.body})
+
+    res.status(StatusCodes.CREATED).json(req.body)
 }
 
 const getAccountByID = async (req, res) => {
@@ -31,11 +32,11 @@ const getAccountByID = async (req, res) => {
         throw new NotFound(`Account ${req.params['acctNum']} not found`);
     }
 
-    res.status(StatusCodes.OK).json({accountInfo})
+    res.status(StatusCodes.OK).json(accountInfo)
 }
 
 const getAccounts = async (req, res) => {
-    res.json({accounts: database, number_of_accounts: database.length});
+    res.status(StatusCodes.OK).json(database);
 }
 
 module.exports = {
