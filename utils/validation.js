@@ -13,9 +13,9 @@ const validateInput = (userInput) => {
             'date.max':`Age must be 18+`}).required(),
         accountType: Joi.string().valid(...accountTypes).required()
         .insensitive()
-    })
+    });
 
-    return schema.validate(userInput)
-}
+    return schema.validate(userInput);
+};
 
-module.exports = validateInput
+module.exports = validateInput;

@@ -6,7 +6,7 @@ const generateNum = (len) => {
         return acc + byte.toString().padStart(2, '0');}, '').slice(0, len);
 
 
-    return randomNUm
-}
+    return randomNUm;
+};
 
-module.exports = generateNum
+module.exports = generateNum;

@@ -5,6 +5,6 @@ const database = [{
     "accountType": "savings",
     "accountBalance": 50000,
     "accountNumber": 2116360114
-}]
+}];
 
-module.exports = database 
+module.exports = database;

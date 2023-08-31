@@ -52,7 +52,7 @@ describe('account endpoints', () => {
                     res.body.should.be.a('object');
                     res.body.should.have.property('lastName').eq("mekwunye");
                     res.body.should.have.property('firstName').eq("daniel");
-                    res.body.should.have.property('accountType').eq("savings");
+                    res.body.should.have.property('accountType').eq("Savings");
                     res.body.should.have.property('accountBalance').eq(6000);
                     res.body.should.have.property('accountNumber');
                 done();
@@ -107,4 +107,4 @@ describe('account endpoints', () => {
             });
         });
     });
-})
+});
