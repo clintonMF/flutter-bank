@@ -5,14 +5,15 @@ This document provides an overview of the available API endpoints for the Flutte
 ## Base URL
 
 The base URL for all API endpoints 
-- Local Development: `http://localhost:3000`
-- Live Server: `https://flutter-bank.onrender.com`
+- Local Development: `http://localhost:3000/`
+- Live Server: `https://flutter-bank.onrender.com/`
 
 ## Table of Contents
 - [Prerequisites](#prerequisites)
 - [Getting Started](#getting-started)
 - [Running the Application](#running-the-application)
 - [API Endpoints](#api-endpoints)
+    - [`App is running endpoint`](#app-is-running-endpoint)
     - [`GET All Accounts`](#get-all-accounts)
     - [`Create New Account`](#create-new-account)
     - [`GET Account Details`](#get-account-details)
@@ -49,7 +50,7 @@ npm start
 
 ## API Endpoints
 
-### App running endpoint
+### App is running endpoint
 - **Endpoint:** `/`
 - **Method:** GET
 - **Description:** tells the developer that the app is running properly. Very useful in deployment
@@ -131,7 +132,7 @@ npm start
     }
     ```
 ## Testing
-To run the API endpoint, run the following command:
+Test were created for all account API endpoints. To run the tests, input the command below into the terminal:
 ```bash
 npm test
 ```

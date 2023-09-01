@@ -1,5 +1,8 @@
 require('dotenv').config();
 require('express-async-errors');
+const helmet = require('helmet');
+const cors = require('cors');
+
 const express = require('express');
 const app = express();
 
@@ -8,12 +11,15 @@ const notFoundMidllware = require('./middleware/not-found');
 const errorMidllware = require('./middleware/error-handler');
 
 app.use(express.json());
+app.use(cors());
+app.use(helmet());
+
+// for running basic deployment test
 app.get('/', (req, res) => {
     res.json({"msg": "app is running"});
-  });
-  
-app.use('/api/v1/accounts', acctRouter)
-const database = []
+});
+// account router
+app.use('/api/v1/accounts', acctRouter);
 
 app.use(notFoundMidllware);
 app.use(errorMidllware);

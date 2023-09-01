@@ -1,5 +1,6 @@
 const crypto = require('crypto');
 
+// generate unique number of digits
 const generateNum = (len) => {
     const randomBytes = crypto.randomBytes(Math.ceil(len / 2));
     const randomNUm = randomBytes.reduce((acc, byte) => {
