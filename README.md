@@ -4,7 +4,9 @@ This document provides an overview of the available API endpoints for the Flutte
 
 ## Base URL
 
-The base URL for all API endpoints is `http://localhost:3000/api/v1`.
+The base URL for all API endpoints 
+- Local Development: `http://localhost:3000`
+- Live Server: `https://flutter-bank.onrender.com`
 
 ## Table of Contents
 - [Prerequisites](#prerequisites)
@@ -16,7 +18,6 @@ The base URL for all API endpoints is `http://localhost:3000/api/v1`.
     - [`GET Account Details`](#get-account-details)
 - [Testing](#testing)
 - [Error Handling](#error-handling)
-- [License](#license)
 
 ## Prerequisites
 
@@ -48,9 +49,23 @@ npm start
 
 ## API Endpoints
 
+### App running endpoint
+- **Endpoint:** `/`
+- **Method:** GET
+- **Description:** tells the developer that the app is running properly. Very useful in deployment
+- **Response:**
+  - Status Code: 200 OK
+  - Body: an array with msg (message)
+  - Example Response Body:
+    ```json
+    {
+        "msg": "app is running"
+    }
+    ```
+
 ### Get All Accounts
 
-- **Endpoint:** `/accounts`
+- **Endpoint:** `/api/v1/accounts`
 - **Method:** GET
 - **Description:** Retrieve a list of all bank accounts.
 - **Response:**
@@ -59,7 +74,7 @@ npm start
 
 ### Create New Account
 
-- **Endpoint:** `/accounts`
+- **Endpoint:** `/api/v1/accounts`
 - **Method:** POST
 - **Description:** Create a new bank account.
 - **Request Body:**
@@ -97,7 +112,7 @@ npm start
 
 ### Get Account Details
 
-- **Endpoint:** `/accounts/:accountNumber`
+- **Endpoint:** `/api/v1/accounts/:accountNumber`
 - **Method:** GET
 - **Description:** Retrieve details of a specific bank account.
 - **Parameters:**
@@ -124,10 +139,6 @@ npm test
 ## Error Handling
 
 In case of errors, the API returns appropriate status codes along with error messages.
-
-## License
-
-This API documentation is licensed under the [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/).
 
 
 
