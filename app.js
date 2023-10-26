@@ -6,7 +6,7 @@ const cors = require('cors');
 const express = require('express');
 const app = express();
 
-const acctRouter = require('./routes/account');
+const acctRouter = require('./routes/accountRoute');
 const notFoundMidllware = require('./middleware/not-found');
 const errorMidllware = require('./middleware/error-handler');
 
