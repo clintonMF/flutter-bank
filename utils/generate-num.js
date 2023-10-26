@@ -1,13 +1,16 @@
-const crypto = require('crypto');
-
 // generate unique number of digits
-const generateNum = (len) => {
-    const randomBytes = crypto.randomBytes(Math.ceil(len / 2));
-    const randomNUm = randomBytes.reduce((acc, byte) => {
-        return acc + byte.toString().padStart(2, '0');}, '').slice(0, len);
+function generateBankAccNum() {
+    // Your bank code (you can replace this with your actual bank code)
+    const bankCode = '123';
+  
+    // Generate a random 6-digit number
+    const min = 1000000;
+    const max = 9999999;
+    const randomAccountNumber = String(Math.floor(Math.random() * (max - min + 1)) + min);
+  
+    const accountNumber = `${bankCode}-${randomAccountNumber}`;
+  
+    return accountNumber;
+}
 
-
-    return randomNUm;
-};
-
-module.exports = generateNum;
+module.exports = generateBankAccNum;

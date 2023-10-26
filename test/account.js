@@ -58,7 +58,7 @@ describe('account endpoints', () => {
                 done();
                 });
         });
-        it("it should not create new task", (done) =>{
+        it("it should not create new account", (done) =>{
             const userInput = {
                 "lastName": "mekwunye",
                 "dob": "2003-07-10",
@@ -81,7 +81,7 @@ describe('account endpoints', () => {
     */
     describe('GET /api/v1/accounts/:accountNUmber', () => {
         it("It should return the account details", (done) =>{
-            const accountNumber = 2116360114;
+            const accountNumber = 1230101011;
             chai.request(server)
                 .get("/api/v1/accounts/"+accountNumber)
                 .end((err, res) => {
