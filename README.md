@@ -7,6 +7,7 @@ This document provides an overview of the available API endpoints for the Flutte
 The base URL for all API endpoints 
 - Local Development: `http://localhost:3000/`
 - Live Server: `https://flutter-bank.onrender.com/`
+- API Documentation: `https://flutter-bank.onrender.com/api-docs`
 
 ## Table of Contents
 - [Prerequisites](#prerequisites)
@@ -63,6 +64,13 @@ npm start
         "msg": "app is running"
     }
     ```
+### API documentation
+- **Endpoint:** `/api-doc`
+- **Method:** GET
+- **Description:** brings the swagger documentation
+- **Response:**
+  - Status Code: 200 OK
+  - Body: an array with msg (message)
 
 ### Get All Accounts
 
