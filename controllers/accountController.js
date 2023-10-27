@@ -15,7 +15,6 @@ const createAccount = async (req, res) => {
     };
 
     const accountNum = await generateNum();
-    console.log(accountNum)
     // ensures uniqueness by searching the db
     while (await getAccountByNUm(accountNum) != null) {
         accountNum = await generateNum();
