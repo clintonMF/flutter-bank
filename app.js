@@ -2,6 +2,8 @@ require('dotenv').config();
 require('express-async-errors');
 const helmet = require('helmet');
 const cors = require('cors');
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger.json');
 
 const express = require('express');
 const app = express();
@@ -20,6 +22,7 @@ app.get('/', (req, res) => {
 });
 // account router
 app.use('/api/v1/accounts', acctRouter);
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.use(notFoundMidllware);
 app.use(errorMidllware);
