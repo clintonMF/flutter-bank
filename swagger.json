@@ -1,0 +1,142 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "1.0.0",
+      "title": "Flutter Bank API",
+      "description": "API documentation for the Flutter Bank application",
+      "contact": {
+        "name": "Clinton Mekwunye",
+        "email": "mekwunyeclinton22@gmail.com"
+      }
+    },
+    "basePath": "/api/v1",
+    "tags": [
+      {
+        "name": "Account",
+        "description": "Operations related to accounts"
+      }
+    ],
+    "paths": {
+      "/accounts": {
+        "get": {
+          "summary": "Get a list of all accounts",
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/Account"
+                }
+              }
+            }
+          },
+          "tags": ["Account"]
+        },
+        "post": {
+          "summary": "Create a new account",
+          "parameters": [
+            {
+                "in": "body",
+                "description": "Account data",
+                "required": true,
+                "schema": {
+                    "$ref": "#/definitions/CreateAccount"
+                }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Account created",
+              "schema": {
+                "$ref": "#/definitions/Account"
+              }
+            }
+          },
+          "tags": ["Account"]
+        }
+      },
+      "/accounts/{id}": {
+        "get": {
+          "summary": "Get account details by ID",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "integer"
+            }
+        ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "schema": {
+                "$ref": "#/definitions/Account"
+              }
+            },
+            "404": {
+              "description": "Account not found"
+            }
+          },
+          "tags": ["Account"]
+        }
+      }
+    },
+    "definitions": {
+      "Account": {
+        "type": "object",
+        "properties": {
+          "firstName": {
+            "type": "string",
+            "example": "John"
+          },
+          "lastName": {
+            "type": "string",
+            "example": "Doe"
+          },
+          "dob": {
+            "type": "string",
+            "example": "1990-01-01"
+          },
+          "accountType": {
+            "type": "string",
+            "example": "Savings"
+          },
+          "accountBalance": {
+            "type": "number",
+            "example": 50000
+          },
+          "accountNumber": {
+            "type": "string",
+            "example": "123-4567890"
+          }
+        }
+      },
+      "CreateAccount": {
+        "type": "object",
+        "properties": {
+          "firstName": {
+            "type": "string",
+            "example": "John"
+          },
+          "lastName": {
+            "type": "string",
+            "example": "Doe"
+          },
+          "dob": {
+            "type": "string",
+            "example": "1990-01-01"
+          },
+          "accountType": {
+            "type": "string",
+            "example": "Savings"
+          },
+          "accountBalance": {
+            "type": "number",
+            "example": 50000
+          }
+        }
+      }
+    }
+  }
+  
